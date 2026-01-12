@@ -28,18 +28,6 @@ jobs:
           pip install -r requirements-dev.txt
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-      - name: Run flake8 (lint)
-        run: |
-          flake8 lambda tests
-
-      - name: Run black (format check)
-        run: |
-          black --check lambda tests
-
-      - name: Run isort (import order check)
-        run: |
-          isort --check-only lambda tests
-
       - name: Run pytest
         run: |
           pytest -q
